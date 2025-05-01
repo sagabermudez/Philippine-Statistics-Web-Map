@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Philippine Statistics</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+</head>
+<body>
+  
+  <div class="watermark" id="watermark">
+    <h1>MUNDO</h1>
+  </div>
+
+  <div class="web">
+
+    
+
+  <div class="container">
+
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+  <h2>Philippine Regional Statistics</h2>
+  
+  <div class="horizontal-line"></div>
+
+<div class = "disc" >
+<p class="Creator-link">Web map by <a href="https://sites.google.com/view/mundo-asb/home" target="_blank" class="creator-name">Alexis.</a>
+    <a href="#" class="disclaimer-link" onclick="toggleDisclaimer(event)">Disclaimer</a>
+</p>
+</div>
+
+<div class="CategoryLabel" id="CategoryLabel">
+  <h1>Category:</h1>
+</div>
+
+<div id="disclaimer-container"  class="hidden">
+    <p>This web map is a self-initiated project created as part of my 
+        learning process in web mapping. While every effort has been 
+        made to ensure the accuracy and completeness of the data, no 
+        guarantees are made regarding its correctness. The map may 
+        contain errors, omissions, or outdated information. The creator
+         is not liable for any decisions or actions taken based on the 
+         information provided.</p>
+</div>
+
+  <button id="Population_Button" class="openButton population-button">
+    <div class="button-content">
+      <h4>Philippine Population</h4>
+      <p>This dataset represents the number of boys born in the regions.</p>
+      <p><strong>Source:</strong> <a href="https://psa.gov.ph/statistics/population-and-housing/stat-tables" target="_blank">PSA</a></p>
+    </div>
+  </button>
+
+  <div class="sidebar-actions">
+    <!-- Collapsible Toggle Button -->
+    <button class="collapsible">
+      <div>
+        <strong>Number of Registered Vital Events</strong><br>
+        <small>This includes birth, death, and marriage data as of January–December 2023</small>
+      </div>
+    </button>
+
+    <!-- Collapsible Content -->
+    <div class="collapsible-content">
+      <button id="BIRTH_B_Button" class="openButton birth-button">
+        <div class="button-content">
+          <h4>Number of Live Births</h4>
+          <p>This dataset represents the number of boys born in the regions.</p>
+          <p><strong>Source:</strong> <a href="https://psa.gov.ph/statistics/vital-statistics" target="_blank">PSA</a></p>
+        </div>
+      </button>
+
+      <button id="DEATH_B_Button" class="openButton death-button">
+        <div class="button-content">
+          <h4>Number of Deaths</h4>
+          <p>This dataset represents the number of boys who passed away in the regions.</p>
+          <p><strong>Source:</strong> <a href="https://psa.gov.ph/statistics/vital-statistics" target="_blank">PSA</a></p>
+        </div>
+      </button>
+
+      <button id="MarriagesButton" class="openButton marriage-button">
+        <div class="button-content">
+          <h4>Number of Marriages</h4>
+          <p>This dataset represents Marriages.</p>
+          <p><strong>Source:</strong> <a href="https://psa.gov.ph/statistics/vital-statistics" target="_blank">PSA</a></p>
+        </div>
+      </button>
+
+      
+
+    </div>
+
+    <div id="empty" class="empty"> 
+
+    </div>
+
+  </div>
+</nav>
+
+    <!-- Center: Map -->
+    <div class="map-container">
+      <div id="mapid"></div>
+    </div>
+
+    <!-- Right Sidebar: Details -->
+    <aside class="details-panel" id = "sidepanel">
+      <h2>Details</h2>
+      <div id="detailsContent">
+        <!-- Legend, charts, or other dynamic details will appear here -->
+        <p>Select a category to display data.</p>
+        
+      </div>
+      <div id="empty" class="empty"> 
+    </aside>
+
+  </div>
+
+  <div class="bottom-nav">
+    <button id="toggleSidebarBtn">☰ Category</button>
+    <button id="toggleDetailsPanelBtn">View Details</button>
+  </div>
+</div>
+
+
+
+  <!-- Your JavaScript -->
+  <script src="script.js"></script>
+
+  <script>
+   // Sidebar toggle functionality
+document.getElementById("toggleSidebarBtn").addEventListener("click", function () {
+  const sidebar = document.querySelector(".sidebar");
+  const detailsPanel = document.querySelector(".details-panel");
+
+  sidebar.classList.toggle("open");
+  detailsPanel.classList.remove("open"); // Ensure details panel is closed
+});
+
+// Details panel toggle functionality
+document.getElementById("toggleDetailsPanelBtn").addEventListener("click", function () {
+  const sidebar = document.querySelector(".sidebar");
+  const detailsPanel = document.querySelector(".details-panel");
+
+  detailsPanel.classList.toggle("open");
+  sidebar.classList.remove("open"); // Ensure sidebar is closed
+});
+
+    </script>
+
+  <script>
+    document.querySelectorAll('.openButton').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.openButton').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+      });
+    });
+  </script>
+
+  <!-- Scripts -->
+<script>
+
+  // Collapsible buttons - apply to all collapsibles
+  document.querySelectorAll(".collapsible").forEach(function (button) {
+    button.addEventListener("click", function () {
+      this.classList.toggle("active");
+      const content = this.nextElementSibling;
+      if (content && content.classList.contains("collapsible-content")) {
+        content.style.display = content.style.display === "block" ? "none" : "block";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

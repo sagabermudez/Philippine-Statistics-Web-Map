@@ -1,0 +1,574 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+/* Container */
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.disc p {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+/* Header */
+h2 {
+  font-size: 25px;               /* Large font size for emphasis */
+  font-weight: bold;             /* Bold text for prominence */
+  text-align: left;              /* Align text to the left */
+  color: #0063c7;                /* Dark blue-gray color */
+  margin-top: 0px;               /* Space above the title */
+  margin-bottom: 20px;           /* Space below the title */
+  letter-spacing: 2px;           /* Slight spacing between letters */
+  text-transform: uppercase;     /* Uppercase letters for a clean look */
+  font-family: 'Arial', sans-serif; /* Clean and readable font */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
+}
+
+/* Left Sidebar (Navigation) */
+.sidebar {
+  width: 500px;
+  height: 100%;
+  background-color: #f0f0f000;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.CategoryLabel {
+  font-size: 13px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 10px;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Smooth transition for scrollbar */
+}
+
+.sidebar:hover::-webkit-scrollbar {
+  opacity: 1;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 0px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar-actions {
+  margin-top: 10px;
+}
+
+.sidebar-actions h3 {
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+#areaButton, #resetButton {
+  padding: 10px;
+  width: 100%;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+#areaButton {
+  background-color: #333333be;
+  color: rgb(0, 0, 0);
+}
+
+#areaButton:hover {
+  background-color: #555;
+}
+
+#resetButton {
+  background-color: #aaa;
+  color: black;
+}
+
+#resetButton:hover {
+  background-color: #888;
+}
+
+/* Map Container */
+.map-container {
+  flex-grow: 1;
+  height: 100%;
+}
+
+#mapid {
+  height: 100%;
+  width: 100%;
+}
+
+/* Right Sidebar (Details) */
+.details-panel {
+  width: 400px;
+  background-color: #fafafa;
+  border-left: 1px solid #ccc;
+  padding: 20px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.details-panel h2 {
+  margin-bottom: 15px;
+}
+
+#detailsContent p {
+  color: #555;
+  font-size: 14px;
+}
+
+/* Category Section */
+.categories-section {
+  margin-top: 20px;
+}
+
+.category-container {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.category-container h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.category-container p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.category-container a {
+  color: #007BFF;
+}
+
+/* Button Styling */
+.openButton {
+  width: 95%;
+  margin: 1px;
+  margin-right: 0px;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  padding-left: 20px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  color: #000000;
+  background-color: #5900ff00;
+  overflow: hidden;
+}
+
+.openButton.active {
+  border-left: 6px solid #5186d662; /* Blue border when active */
+  border: 2px solid #0063c7;
+}
+
+.openButton:hover {
+  color: #555;
+  border: 2px solid #0063c7;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#Population_Button {
+  width: 100%;
+  padding-left: 0px;
+}
+
+#Population_Button.active {
+  border-left: 6px solid #4a90e2; /* Distinct border if active */
+}
+
+/* Inner Button Content */
+.button-content {
+  padding: 5px 5px;
+}
+
+.button-content h4 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+}
+
+.button-content p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #000000;
+}
+
+.button-content a {
+  color: #000000;
+  text-decoration: underline;
+}
+
+/* Collapsible Button */
+.collapsible {
+  background-color: #007bff00;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  width: 100%;
+  border-left: 0px solid #4882da;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  padding: 5px;
+  text-align: left;
+  font-size: 18px;
+  margin-bottom: 10px;
+  transition: background 0.3s ease;
+}
+
+.collapsible.active {
+  border-left: 6px solid #4882da; /* Blue left border when active */
+}
+
+.collapsible:hover {
+  background-color: #66666600;
+  color: dimgray;
+}
+
+/* Collapsible Content */
+.collapsible-content {
+  display: none;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+  position: fixed;
+  top: 15px;
+  left: 515px;
+  z-index: 999;
+  background-color: #ececec;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+  background-color: #cecece;
+}
+
+.sidebar.closed + .sidebar-toggle {
+  left: 15px; /* Move to edge when sidebar is closed */
+}
+
+.web {
+  display: flex;
+}
+
+/* Bottom Navigation Panel */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5%;
+  background-color: #353535;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  z-index: 0;
+}
+
+.bottom-nav button {
+  background-color: #ebebeb00;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  font-size: 16px;
+  border-color: 2px solid #0000002c;
+  border-radius: 10px ;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 48.5%;
+}
+
+.bottom-nav button:hover {
+  background-color: #bebebe00;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+  display: flex;
+}
+
+.sidebar.open {
+  transform: translateX(0); /* Show the sidebar */
+  transition: transform 0.3s ease;
+}
+
+/* For Details Panel */
+.details-panel.open {
+  transform: translateX(0); /* Show the details panel */
+  transition: transform 0.3s ease;
+}
+
+/* Initially hide Sidebar and Details Panel off-screen */
+
+.empty{
+  background-color: #f8060600;
+  height: 20px;
+}
+
+.bottom-nav {
+  height: 0px;
+  z-index: 3000;
+  visibility: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+#disclaimer-container {
+  background-color: #f9f9f9;
+  padding: 5px;
+  text-align: justify;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-size: 10px;
+}
+
+.horizontal-line {
+  position: relative; /* Ensures proper stacking context */
+  z-index: 10; /* Brings it above other elements */
+  height: 1px;
+  background-color: #666666; /* Line color */
+  width: 100%; /* Ensures it stretches fully */
+  margin-top: -15px ;
+  margin-bottom: 5px;
+}
+
+#disclaimer-container p{
+  font-size: 12px;
+}
+
+.watermark {
+  position: absolute;
+  z-index: 1000;
+  color: rgba(245, 245, 245, 0.13);
+  margin-left: 515px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+@media (max-width: 1500px) {
+
+  .watermark {
+    position: absolute;
+    z-index: 1000;
+    color: rgba(245, 245, 245, 0.13);
+    margin: 5px;
+  }
+  
+  /* Make sidebar full-width (100%) when screen size is 800px or smaller */
+  .map-container{
+    max-height: 55%;
+    border-bottom: 3px solid #9b9b9b; /* Adds a black 2px bottom border */
+    z-index: 300;
+  }
+  
+  .sidebar {
+    width: 100%;       /* Sidebar takes up full screen width */
+    height: 30%;     /* Height of the sidebar */
+    position: fixed;   /* Fix the sidebar to the screen */
+    bottom: 10%;         /* Stick to the bottom of the screen */
+    z-index: 201;      /* Ensure it stays above other elements */
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+.collapsible strong, .collapsible small{
+  font-size: 14px;
+}
+  .button-content h4, .button-content p{
+    margin: 0 0 0px 0;
+    font-size: 14px;
+  }
+
+  .details-panel {
+    width: 100%;       /* Sidebar takes up full screen width */
+    height: 30%;     /* Height of the sidebar */
+    position: fixed;   /* Fix the sidebar to the screen */
+    bottom: 10%;         /* Stick to the bottom of the screen */
+    z-index: 202;       /* Ensure it stays above other elements */
+  }
+
+  .bottom-nav {
+    height: 10%;
+    bottom: 0;
+    z-index: 3000;
+    visibility: visible;
+  }
+
+
+  .sidebar {
+    display: block;
+    /* Other styles */
+  }
+  
+  .sidebar.open {
+    display: block;
+    /* Or any other display property you want when open */
+  }
+  
+  .details-panel {
+    display: none;
+    /* Other styles */
+  }
+  
+  .details-panel.open {
+    display: block;
+    /* Or any other display property you want when open */
+  }
+
+  .disc p {
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+
+  .CategoryLabel {
+    font-size: 11px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+  }
+
+  .openButton:hover {
+    color: #000000;
+    border: 2px solid #0063c7;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+}
+
+/* Phone view  */
+
+@media (max-width: 800px) {
+
+  .watermark {
+    position: absolute;
+    z-index: 1000;
+    color: rgba(245, 245, 245, 0.13);
+    margin: 5px;
+  }
+
+  /* Make sidebar full-width (100%) when screen size is 800px or smaller */
+  .map-container{
+    max-height: 55%;
+    border-bottom: 3px solid #9b9b9b; /* Adds a black 2px bottom border */
+    z-index: 300;
+  }
+  
+  .sidebar {
+    width: 100%;       /* Sidebar takes up full screen width */
+    height: 30%;     /* Height of the sidebar */
+    position: fixed;   /* Fix the sidebar to the screen */
+    bottom: 10%;         /* Stick to the bottom of the screen */
+    z-index: 201;      /* Ensure it stays above other elements */
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+.collapsible strong, .collapsible small{
+  font-size: 14px;
+}
+  .button-content h4, .button-content p{
+    margin: 0 0 0px 0;
+    font-size: 14px;
+  }
+
+  .details-panel {
+    width: 100%;       /* Sidebar takes up full screen width */
+    height: 30%;     /* Height of the sidebar */
+    position: fixed;   /* Fix the sidebar to the screen */
+    bottom: 10%;         /* Stick to the bottom of the screen */
+    z-index: 202;       /* Ensure it stays above other elements */
+  }
+
+  .bottom-nav {
+    height: 10%;
+    bottom: 0;
+    z-index: 3000;
+    visibility: visible;
+  }
+
+
+  .sidebar {
+    display: block;
+    /* Other styles */
+  }
+  
+  .sidebar.open {
+    display: block;
+    /* Or any other display property you want when open */
+  }
+  
+  .details-panel {
+    display: none;
+    /* Other styles */
+  }
+  
+  .details-panel.open {
+    display: block;
+    /* Or any other display property you want when open */
+  }
+
+  .disc p {
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+
+  .CategoryLabel {
+    font-size: 11px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+  }
+
+  .openButton:hover {
+    color: #000000;
+    border: 2px solid #0063c7;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+}
